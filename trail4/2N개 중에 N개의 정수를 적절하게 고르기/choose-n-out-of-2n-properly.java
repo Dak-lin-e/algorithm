@@ -32,16 +32,15 @@ public class Main {
     }
 
     static void jaegui(int current){
-        if(current == n){
+        if(sum1.size() == n){
             calculate();
             return ;
         }
         
         for(int i=current; i<2*n; i++){
-            if(!sum1.contains(arr[i])){
             sum1.add(arr[i]);
-            jaegui(current+1);
-            sum1.remove(sum1.size()-1);}
+            jaegui(i+1);
+            sum1.remove(sum1.size()-1);
         }
         return;
     }
