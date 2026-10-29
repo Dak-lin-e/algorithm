@@ -37,7 +37,7 @@ public class Main {
             return ;
         }
         
-        for(int i=current; i<2*n; i++){
+        for(int i=current; i<2*n-1; i++){
             sum1.add(arr[i]);
             jaegui(i+1);
             sum1.remove(sum1.size()-1);
