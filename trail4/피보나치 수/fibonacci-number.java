@@ -1,28 +1,27 @@
 import java.util.Scanner;
 public class Main {
-    static int memeo[];
-
-    static int fibo(int n){
-        if(memo[n] != -1){
-            return memo[n];
+    static int memo[];
+    static int n;
+    static int fibo(int num){
+        if(memo[num] != 0){
+            return memo[num];
         }
-        if(n<=2){
-            memo[n]=1;
-            return 1;
+
+        if(num<=2){
+            memo[num]=1;
         }
 
         else{
-            memo[n]=fibo(n-1) + fibo(n-2);
-            return memo[n];
+            memo[num]=fibo(num-1) + fibo(num-2);
         }
-
+        return memo[num];
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
+        n = sc.nextInt();
         // Please write your code here.
-        memo = new int[n];
+        memo = new int[n+1];
         System.out.println(fibo(n));
     }
 }
