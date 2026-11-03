@@ -35,10 +35,7 @@ public class Main {
                 dp[i][j] = Math.max(dp[i-1][j] + matrix[i][j], dp[i][j-1] + matrix[i][j]);
             }
         }
-        // int ans = Integer.MIN_VALUE;
-        // for(int i=0; i<n; i++){
-        //     ans = Math.max(ans,dp[n-1][i]);
-        // }
+
         System.out.println(dp[n-1][n-1]);
 
     }
