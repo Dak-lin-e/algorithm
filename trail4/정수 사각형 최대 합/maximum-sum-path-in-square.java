@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Main {
+    static int n;
+    static int matrix[][];
+    static int dp[][];
+
+    static void init(){
+        dp[0][0]=matrix[0][0];
+        for(int i=1; i<n; i++){
+            dp[0][i] = dp[0][i-1] + matrix[0][i];
+        }
+        for(int j=1; j<n; j++){
+            dp[j][0] = dp[j-1][0] + matrix[j][0];
+        }    
+    
+    }
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        n = sc.nextInt();
+        matrix = new int[n][n];
+        dp = new int[n][n];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = sc.nextInt();
+            }
+        }
+        // Please write your code here.
+        init();
+        for (int i = 1; i < n; i++) {
+            for (int j = 1; j < n; j++) {
+                dp[i][j] = Math.max(dp[i-1][j] + matrix[i][j], dp[i][j-1] + matrix[i][j]);
+            }
+        }
+        // int ans = Integer.MIN_VALUE;
+        // for(int i=0; i<n; i++){
+        //     ans = Math.max(ans,dp[n-1][i]);
+        // }
+        System.out.println(dp[n-1][n-1]);
+
+    }
+}
