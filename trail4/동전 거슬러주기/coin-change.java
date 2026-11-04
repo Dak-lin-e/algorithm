@@ -36,14 +36,19 @@ public class Main {
                 }
             }
         }
+
         int ans=Integer.MAX_VALUE;
+        
         for(int a:answer){
             //System.out.println(a);
             if(ans>a){
                 ans=a;
             }
         }
+        if(ans==Integer.MAX_VALUE){
+            System.out.println(-1);
+        }else{
         System.out.println(ans);
-
+        }
+        }
     }
-}
