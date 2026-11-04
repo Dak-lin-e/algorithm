@@ -24,7 +24,7 @@ public class Main {
                     if(dp[i-coin[j]]==Integer.MIN_VALUE){
                         continue;
                     }
-                    if(i==m){
+                    if(i==m &&dp[i-coin[j]]!=0){
                     answer.add(dp[i-coin[j]]+1);
                     }
                     else{
@@ -38,6 +38,7 @@ public class Main {
         }
         int ans=Integer.MAX_VALUE;
         for(int a:answer){
+            //System.out.println(a);
             if(ans>a){
                 ans=a;
             }
