@@ -12,9 +12,9 @@ public class Main {
         ArrayList<Integer> answer = new ArrayList<>();
         for (int i = 1; i <=n; i++){
             coin[i] = sc.nextInt();
-            dp[i]=Integer.MIN_VALUE;
             }
         // Please write your code here.
+        Arrays.fill(dp, Integer.MIN_VALUE);
         dp[0]=0;
 
         for(int i=1; i<=m; i++){
@@ -24,14 +24,14 @@ public class Main {
                     if(dp[i-coin[j]]==Integer.MIN_VALUE){
                         continue;
                     }
-                    if(i==m &&dp[i-coin[j]]!=0){
+                    if(i==m ){
                     answer.add(dp[i-coin[j]]+1);
                     }
                     else{
                     if(temp>dp[i-coin[j]]+1){
                         temp=dp[i-coin[j]]+1;
+                        dp[i]=temp;
                     }
-                    dp[i]=temp;
                     }
                 }
             }
@@ -45,10 +45,13 @@ public class Main {
                 ans=a;
             }
         }
+
         if(ans==Integer.MAX_VALUE){
             System.out.println(-1);
-        }else{
+        }
+        else{
         System.out.println(ans);
         }
+
         }
     }
