@@ -16,7 +16,8 @@ public class Main {
         dp[0]=0;
         dp[1]=0;
         dp[2]=1;
-        if(n>3){
+        if(n>=3){
+            dp[3]=1;
             for(int i=4; i<n+1; i++){
                 if(dp[i-2] == Integer.MIN_VALUE && dp[i-3] == Integer.MIN_VALUE){
 
