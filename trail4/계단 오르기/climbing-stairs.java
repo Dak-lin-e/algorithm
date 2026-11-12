@@ -9,9 +9,9 @@ public class Main {
         int dp[] = new int[n+1];
 
         // 갈 수 없는 경우에는 INT_MIN으로 저장 , 점화식: dp[i] = Math.max(dp[i-1]+1 , dp[i]);
-        for(int i=0; i<dp.length; i++){
-            dp[i] = Integer.MIN_VALUE;
-        }
+        // for(int i=0; i<dp.length; i++){
+        //     dp[i] = Integer.MIN_VALUE;
+        // }
 
         dp[0]=0;
         dp[1]=0;
@@ -19,17 +19,21 @@ public class Main {
         if(n>=3){
             dp[3]=1;
             for(int i=4; i<n+1; i++){
-                if(dp[i-2] != Integer.MIN_VALUE && dp[i-3] != Integer.MIN_VALUE){
-                    dp[i]= Math.max(dp[i-2],dp[i-3]);
-                    dp[i]+=1;
+                if(dp[i-2] != 0 && dp[i-3] != 0){
+                    dp[i]= dp[i-2]+dp[i-3];
+                    
                 }
-                else if(dp[i-2] != Integer.MIN_VALUE || dp[i-3] != Integer.MIN_VALUE){
+                else if(dp[i-2] != 0 || dp[i-3] != 0){
                     dp[i]= Math.max(dp[i-2],dp[i-3]);
                 }
                 else{
                 }
             }
         }
+
+        // for(int i:dp){
+        //     System.out.println(i);
+        // }
         System.out.println(dp[n]);
     }
 }
