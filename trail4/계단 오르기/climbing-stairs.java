@@ -19,10 +19,14 @@ public class Main {
         if(n>=3){
             dp[3]=1;
             for(int i=4; i<n+1; i++){
-                if(dp[i-2] == Integer.MIN_VALUE && dp[i-3] == Integer.MIN_VALUE){
-
-                }else{
-                    dp[i]= Math.max(dp[i-2]+1,dp[i-3]+1);
+                if(dp[i-2] != Integer.MIN_VALUE && dp[i-3] != Integer.MIN_VALUE){
+                    dp[i]= Math.max(dp[i-2],dp[i-3]);
+                    dp[i]+=1;
+                }
+                else if(dp[i-2] != Integer.MIN_VALUE || dp[i-3] != Integer.MIN_VALUE){
+                    dp[i]= Math.max(dp[i-2],dp[i-3]);
+                }
+                else{
                 }
             }
         }
