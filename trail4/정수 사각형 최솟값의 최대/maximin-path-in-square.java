@@ -14,8 +14,8 @@ public class Main {
         dp[0][0]=matrix[0][0];
 
             for (int j = 1; j < n; j++) {
-                dp[0][j]= Math.min(matrix[0][j-1],matrix[0][j]);
-                dp[j][0]=Math.min(matrix[j-1][0],matrix[j][0]);
+                dp[0][j]= Math.min(dp[0][j-1],matrix[0][j]);
+                dp[j][0]=Math.min(dp[j-1][0],matrix[j][0]);
             }
         
         
