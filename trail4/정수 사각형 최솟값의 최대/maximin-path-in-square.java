@@ -22,7 +22,7 @@ public class Main {
 
         for (int i = 1; i < n; i++) {
             for (int j = 1; j < n; j++) {
-                dp[i][j] =Math.max( Math.min(dp[i-1][j],matrix[i-1][j]), Math.min(dp[i][j-1],matrix[i][j-1]) );
+                dp[i][j] =Math.max( Math.min(dp[i-1][j],matrix[i][j]), Math.min(dp[i][j-1],matrix[i][j]) );
             }
         }
         System.out.println(dp[n-1][n-1]);
