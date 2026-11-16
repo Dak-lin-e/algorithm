@@ -22,6 +22,7 @@ public class Main {
         if(i-5>=0){
             dp[i]+=dp[i-5];
         }
+        dp[i]=dp[i]%10007;
     }
     System.out.println(dp[n]);
 }
